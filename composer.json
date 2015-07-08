@@ -1,0 +1,20 @@
+{
+    "name": "ikwattro/springbot",
+    "description": "StackOverflow bot for posting SpringDataNeo4j questions to Slack channel",
+    "require": {
+        "guzzlehttp/guzzle": "^6.0",
+        "maknz/slack": "^1.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ikwattro\\SpringBot\\": "src/"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Christophe Willemsen",
+            "email": "willemsen.christophe@gmail.com"
+        }
+    ]
+}

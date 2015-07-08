@@ -1,0 +1,7 @@
+database:
+  name: "questions"
+
+slack:
+  hook_url: "slackbot.hook.url"
+  username: "slackbot"
+  channel: "#channel"
