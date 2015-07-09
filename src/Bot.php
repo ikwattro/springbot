@@ -35,7 +35,10 @@ class Bot
         foreach ($questions['items'] as $question) {
             if (!$this->db->hasRecord($question['question_id'])) {
                 $this->db->persistRecord($question['question_id'], $question);
-                $this->slackBot->postMessage($question);
+                if (false !== $this->shouldPostOnSlack) {
+                    $this->slackBot->postMessage($question);
+                }
+
             }
         }
     }
