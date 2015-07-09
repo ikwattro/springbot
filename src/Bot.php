@@ -16,13 +16,16 @@ class Bot
 
     private $slackBot;
 
-    public function __construct()
+    private $shouldPostOnSlack;
+
+    public function __construct($shouldPostOnSlack = true)
     {
         $configRaw = file_get_contents(__DIR__.'/../config/config.yml');
         $config = Yaml::parse($configRaw);
         $this->db = new JsonDB(__DIR__.'/../data');
         $this->stackOverflowClient = new StackOverflowClient($config['tags']);
         $this->slackBot = new SlackBot($config['slack']);
+        $this->shouldPostOnSlack = $shouldPostOnSlack;
     }
 
     public function process()
