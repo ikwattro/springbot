@@ -1,5 +1,5 @@
 slack:
-  hook_url: "https://hooks.slack.com/services/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"
+  hook_url: "hookurl"
   username: "sdnbot"
   channel: "#sdn"
 
