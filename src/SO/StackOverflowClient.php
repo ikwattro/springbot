@@ -1,0 +1,47 @@
+<?php
+
+namespace Ikwattro\SpringBot\SO;
+
+use GuzzleHttp\Client;
+
+class StackOverflowClient
+{
+    const STACKEXCHANGE_URL = 'https://api.stackexchange.com/2.2/questions';
+
+    private $client;
+
+    private $tags;
+
+    public function __construct(array $tags)
+    {
+        $this->tags = $tags;
+        $this->client = new Client();
+    }
+
+    public function getQuestions()
+    {
+        $response = $this->client->get(self::STACKEXCHANGE_URL, $this->getConfig());
+
+        return json_decode((string) $response->getBody(), true);
+    }
+
+    private function getConfig()
+    {
+        $defaultTags = [
+            'spring-data-neo4j-4'
+        ];
+
+        $tags = array_merge($this->tags, $defaultTags);
+
+        $defaultConfig = [
+            'query' => [
+                'site' => 'stackoverflow',
+                'sort' => 'creation',
+                'order' => 'desc',
+                'tagged' => implode(';', $tags)
+            ]
+        ];
+
+        return $defaultConfig;
+    }
+}

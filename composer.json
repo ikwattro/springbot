@@ -3,7 +3,9 @@
     "description": "StackOverflow bot for posting SpringDataNeo4j questions to Slack channel",
     "require": {
         "guzzlehttp/guzzle": "^6.0",
-        "maknz/slack": "^1.7"
+        "maknz/slack": "^1.7",
+        "symfony/filesystem": "^2.7",
+        "symfony/yaml": "^2.7"
     },
     "autoload": {
         "psr-4": {

@@ -1,7 +1,8 @@
-database:
-  name: "questions"
-
 slack:
-  hook_url: "slackbot.hook.url"
-  username: "slackbot"
-  channel: "#channel"
+  hook_url: "https://hooks.slack.com/services/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"
+  username: "sdnbot"
+  channel: "#sdn"
+
+tags:
+  - "spring-data-neo4j-4"
+  - "spring-data-neo4j"
