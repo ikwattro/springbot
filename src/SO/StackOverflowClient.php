@@ -3,6 +3,8 @@
 namespace Ikwattro\SpringBot\SO;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\RequestException;
 
 class StackOverflowClient
 {
@@ -20,9 +22,15 @@ class StackOverflowClient
 
     public function getQuestions()
     {
-        $response = $this->client->get(self::STACKEXCHANGE_URL, $this->getConfig());
+        try {
+            $response = $this->client->get(self::STACKEXCHANGE_URL, $this->getConfig());
+            print_r($response);
 
-        return json_decode((string) $response->getBody(), true);
+            return json_decode((string) $response->getBody(), true);
+        } catch (RequestException $e) {
+            echo $e->getMessage();
+        }
+
     }
 
     private function getConfig()

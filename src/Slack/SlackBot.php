@@ -9,8 +9,6 @@ class SlackBot
 {
     private $client;
 
-    private $settings;
-
     public function __construct(array $config)
     {
         $settings = [
