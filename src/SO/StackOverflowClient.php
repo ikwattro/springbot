@@ -50,9 +50,6 @@ class StackOverflowClient
             ]
         ];
 
-        print_r($defaultConfig);
-        exit();
-
         return $defaultConfig;
     }
 }
