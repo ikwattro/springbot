@@ -39,7 +39,7 @@ class StackOverflowClient
             'spring-data-neo4j-4'
         ];
 
-        $tags = array_merge($this->tags, $defaultTags);
+        $tags = array_unique(array_merge($this->tags, $defaultTags), SORT_REGULAR);
 
         $defaultConfig = [
             'query' => [
